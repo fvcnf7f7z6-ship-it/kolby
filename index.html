@@ -124,11 +124,87 @@ button:focus-visible{outline:3px solid var(--ink); outline-offset:2px}
   width:100%; font:inherit; font-weight:700; font-size:17px; padding:14px; border:0; border-radius:14px;
   background:var(--accent); color:var(--onaccent); cursor:pointer;
 }
+
+/* ---------- start menu ---------- */
+.menu{
+  position:fixed; inset:0; z-index:100; display:flex; align-items:center; justify-content:center;
+  padding:calc(env(safe-area-inset-top,0px) + 24px) 24px calc(env(safe-area-inset-bottom,0px) + 28px);
+  background:
+    radial-gradient(120% 70% at 50% 0%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 62%),
+    linear-gradient(var(--bg), var(--bg2));
+  transition:opacity .35s ease, visibility 0s;
+}
+.menu.hide{opacity:0; visibility:hidden; transition:opacity .35s ease, visibility 0s .35s}
+.menu .inner{
+  width:100%; max-width:360px; display:flex; flex-direction:column; align-items:center; gap:22px; text-align:center;
+  animation:rise .7s cubic-bezier(.2,.8,.2,1) both;
+}
+@keyframes rise{from{opacity:0; transform:translateY(16px)} to{opacity:1; transform:none}}
+.menu h1{
+  margin:0; font-family:"Unbounded",system-ui,sans-serif; font-weight:700; font-size:46px; letter-spacing:-.02em; line-height:1;
+}
+.menu-flasks{display:flex; gap:14px; align-items:flex-end; padding:6px 0 10px; position:relative}
+.menu-flasks::after{
+  content:''; position:absolute; left:-10px; right:-10px; bottom:0; height:8px; border-radius:4px; background:var(--shelf);
+}
+.mf{
+  --tw:38px; position:relative; flex:none; width:38px; height:104px; margin-bottom:8px;
+  animation:bob 3.4s ease-in-out infinite; animation-delay:calc(var(--i) * -.55s);
+}
+@keyframes bob{0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)}}
+.dedic{
+  margin:0; padding:18px 20px; width:100%; border-radius:18px;
+  background:var(--panel); color:var(--ink);
+  box-shadow:0 10px 30px rgba(10,30,60,.14);
+  font-weight:700; font-size:19px; line-height:1.45;
+}
+.dedic b{font-family:"Unbounded",system-ui,sans-serif; font-weight:700; color:var(--accent); white-space:nowrap}
+.start{
+  width:100%; font:inherit; font-weight:700; font-size:20px; padding:16px; border:0; border-radius:16px;
+  background:var(--accent); color:var(--onaccent); cursor:pointer;
+  box-shadow:0 8px 22px color-mix(in srgb, var(--accent) 35%, transparent);
+  transition:transform .12s ease;
+}
+.start:active{transform:scale(.97)}
+.start:focus-visible{outline:3px solid var(--ink); outline-offset:3px}
+@media (prefers-reduced-motion: reduce){ .mf, .menu .inner{animation:none} }
+
+/* ---------- back to menu ---------- */
+.top{align-items:center; gap:10px}
+.top h1{flex:1; min-width:0}
+.back{
+  display:inline-flex; align-items:center; gap:2px; flex:none; font:inherit; font-weight:700; font-size:14px;
+  padding:8px 12px 8px 6px; border-radius:12px; cursor:pointer;
+  border:1.5px solid var(--btnline); background:var(--btn); color:var(--ink);
+}
+.back svg{display:block}
+
+.ghost{
+  width:100%; margin-top:-8px; font:inherit; font-weight:700; font-size:16px; padding:14px; border-radius:14px; cursor:pointer;
+  border:1.5px solid var(--btnline); background:transparent; color:var(--ink);
+}
+.ghost:focus-visible{outline:3px solid var(--ink); outline-offset:3px}
+
+/* ---------- unified buttons: one style for menu and game ---------- */
+.start, .ghost, .card button{
+  width:100%; min-height:54px; padding:0 18px; display:flex; align-items:center; justify-content:center;
+  font:inherit; font-weight:700; font-size:18px; border-radius:14px; border:1.5px solid transparent;
+  cursor:pointer; box-shadow:none; transition:transform .12s ease;
+}
+.start, .card button{background:var(--accent); color:var(--onaccent); border-color:var(--accent)}
+.ghost{margin-top:-12px; background:var(--btn); color:var(--ink); border-color:var(--btnline)}
+.start:active, .ghost:active, .card button:active{transform:scale(.97)}
+.tools button, .back{border-radius:14px}
+.tools button{min-height:54px; padding:0 4px; font-size:15px}
+.dedic{border-radius:20px}
 </style>
 </head>
 <body>
 <div class="app">
   <div class="top">
+    <button type="button" class="back" id="backBtn" aria-label="В главное меню">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Меню
+    </button>
     <h1 id="lvl">Уровень 1</h1>
     <div class="moves" id="moves">Ходы: 0</div>
   </div>
@@ -147,6 +223,21 @@ button:focus-visible{outline:3px solid var(--ink); outline-offset:2px}
     <button type="button" id="undo">Отменить</button>
     <button type="button" id="restart">Заново</button>
     <button type="button" id="extra">+ Колба</button>
+  </div>
+</div>
+
+<div class="menu" id="menu" role="dialog" aria-labelledby="menuTitle">
+  <div class="inner">
+    <h1 id="menuTitle">Колбы</h1>
+    <div class="menu-flasks" aria-hidden="true">
+      <div class="mf" style="--i:0"><div class="lip"></div><div class="glass"><div class="layers"><div class="unit" style="--c:#E5484D"></div><div class="unit" style="--c:#F5A524"></div><div class="unit" style="--c:#F2D93A"></div><div class="unit top" style="--c:#3FB950"></div></div><div class="shine"></div></div></div>
+      <div class="mf" style="--i:1"><div class="lip"></div><div class="glass"><div class="layers"><div class="unit" style="--c:#3B82F6"></div><div class="unit" style="--c:#1DB5A6"></div><div class="unit top" style="--c:#8B5CF6"></div></div><div class="shine"></div></div></div>
+      <div class="mf" style="--i:2"><div class="lip"></div><div class="glass"><div class="layers"><div class="unit" style="--c:#EC6FB2"></div><div class="unit top" style="--c:#F2D93A"></div></div><div class="shine"></div></div></div>
+      <div class="mf" style="--i:3"><div class="lip"></div><div class="glass"><div class="layers"><div class="unit" style="--c:#3FB950"></div><div class="unit top" style="--c:#3B82F6"></div></div><div class="shine"></div></div></div>
+      <div class="mf" style="--i:4"><div class="lip"></div><div class="glass"><div class="layers"></div><div class="shine"></div></div></div></div>
+    <p class="dedic">Игра создана для<br>моей малышки <b>Леры</b> 🫶🏼</p>
+    <button type="button" class="start" id="startBtn">Начать</button>
+    <button type="button" class="ghost" id="resetBtn" hidden>Начать заново</button>
   </div>
 </div>
 
@@ -236,7 +327,7 @@ button:focus-visible{outline:3px solid var(--ink); outline-offset:2px}
   }
   /*LOGIC_END*/
 
-  var KEY = 'powder-level-v1', SEL = 12;
+  var KEY = 'powder-level-v1', SKEY = 'powder-state-v1', SEL = 12;
   var $ = function(id){ return document.getElementById(id); };
   var board = $('board');
   var tubes = [], init = [], hist = [], flasks = [];
@@ -388,6 +479,7 @@ button:focus-visible{outline:3px solid var(--ink); outline-offset:2px}
 
     busy = false;
     if(isSolved(tubes)) win(); else hud();
+    save();
   }
 
   function win(){
@@ -412,36 +504,111 @@ button:focus-visible{outline:3px solid var(--ink); outline-offset:2px}
     return 'ходов';
   }
 
+  function save(){
+    try {
+      if(won){ localStorage.removeItem(SKEY); return; }
+      localStorage.setItem(SKEY, JSON.stringify({
+        level: level, tubes: tubes, init: init, initLen: initLen,
+        hist: hist.slice(-100), moves: moves, extraUsed: extraUsed
+      }));
+    } catch(e){}
+  }
+  function okTubes(t){
+    return Array.isArray(t) && t.every(function(x){
+      return Array.isArray(x) && x.length <= CAP && x.every(function(c){ return c >= 0 && c < COLORS.length; });
+    });
+  }
+  function restore(){
+    try {
+      var raw = localStorage.getItem(SKEY);
+      if(!raw) return false;
+      var o = JSON.parse(raw);
+      if(!o || o.level !== level || !okTubes(o.tubes) || !okTubes(o.init)) return false;
+      if(isSolved(o.tubes)) return false;
+      tubes = o.tubes; init = o.init; initLen = o.initLen || o.init.length;
+      hist = Array.isArray(o.hist) ? o.hist.filter(okTubes) : [];
+      moves = o.moves | 0; extraUsed = !!o.extraUsed;
+      sel = -1; won = false; busy = false; started = moves > 0;
+      if(started) $('tip').textContent = '';
+      $('win').hidden = true;
+      build(); hud();
+      return true;
+    } catch(e){ return false; }
+  }
+
   function newLevel(){
     tubes = makeLevel(level);
     init = clone(tubes); initLen = tubes.length;
     hist = []; moves = 0; extraUsed = false; sel = -1; won = false; busy = false;
     $('win').hidden = true;
-    build(); hud();
+    build(); hud(); save();
   }
 
   $('undo').addEventListener('click', function(){
     if(busy || won || !hist.length) return;
     tubes = hist.pop(); moves = Math.max(0, moves - 1); sel = -1;
     extraUsed = tubes.length > initLen;
-    build(); hud();
+    build(); hud(); save();
   });
   $('restart').addEventListener('click', function(){
     if(busy) return;
     tubes = clone(init); hist = []; moves = 0; extraUsed = false; sel = -1; won = false;
     $('win').hidden = true;
-    build(); hud();
+    build(); hud(); save();
   });
   $('extra').addEventListener('click', function(){
     if(busy || won || extraUsed) return;
     hist.push(clone(tubes));
     tubes.push([]); extraUsed = true; sel = -1;
-    build(); hud();
+    build(); hud(); save();
   });
   $('next').addEventListener('click', function(){ level++; newLevel(); });
   window.addEventListener('resize', function(){ if(!busy && flasks.length){ build(); } });
 
-  newLevel();
+  if(!restore()) newLevel();
+
+  var menu = $('menu'), startBtn = $('startBtn'), resetBtn = $('resetBtn'), hideTimer = null, resetArmed = false, resetTimer = null;
+  function hasProgress(){ return level > 1 || moves > 0 || hist.length > 0; }
+  function disarm(){
+    resetArmed = false; clearTimeout(resetTimer);
+    resetBtn.textContent = 'Начать заново';
+  }
+  function updateMenu(){
+    var prog = hasProgress();
+    startBtn.textContent = prog ? 'Продолжить уровень ' + level : 'Начать';
+    resetBtn.hidden = !prog;
+    disarm();
+  }
+  function openMenu(){
+    clearTimeout(hideTimer);
+    updateMenu();
+    menu.hidden = false;
+    void menu.offsetWidth;
+    menu.classList.remove('hide');
+  }
+  function closeMenu(){
+    menu.classList.add('hide');
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(function(){ menu.hidden = true; }, 400);
+  }
+  startBtn.addEventListener('click', closeMenu);
+  resetBtn.addEventListener('click', function(){
+    if(!resetArmed){
+      resetArmed = true;
+      resetBtn.textContent = 'Точно? Нажми ещё раз';
+      clearTimeout(resetTimer);
+      resetTimer = setTimeout(disarm, 3500);
+      return;
+    }
+    disarm();
+    level = 1;
+    try { localStorage.setItem(KEY, '1'); localStorage.removeItem(SKEY); } catch(e){}
+    newLevel();
+    updateMenu();
+    closeMenu();
+  });
+  $('backBtn').addEventListener('click', openMenu);
+  updateMenu();
 })();
 </script>
 </body>
