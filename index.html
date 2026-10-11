@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Колбы</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Колбы">
+<meta name="theme-color" content="#16293D">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAESElEQVR42u3dsWtVZxzG8XMuOiiFboJjQASXDJ1a0U2cHKuC/gdSShFS1NxcTG4M5cZCcXAXccjkUjp16JC5g3Qq3bt06CBkcHEQJOSek5zoyXve33s/X84Qbi7c9773m+c5P85JUp+7dLUCmhjZApAD5AA5QA4Myamqqu0CJAfIgd5qRatAcoAcMK0ggRzUgFoBOUAOkAPDTiu1U1JIDpAD5AA5QA5kOa24tgLJgWMnh9xAe62wA2oF5IBpBZIDwyZHACY//VLe1m88+EFyMCPq+xrZQe8upBxlm5H/e3QnWAbk+hGcCrSHz2ZbZcjw/Y+PjLIIPsoqleFbJd9zDmkMtYJPkKPO9pg+vF/8BzB9eD/b/R9F2LuyzVAr/Aj4vurzy9eCbu6/b37/+PXzX980PufejeWTXkaXlw66yYHluLj9xYcvbr/baHzCzulJmpUcuYC/V96aVgag8YPZOT1JZsYhL9cmjWklwVENGxjHed2QOzwqLDaGMqPt1UOHx4gZ/ChNjrWtnzM0o20l86sNgQtvqcZCyZGGccax0baeccDwKOFOsNzM+Liqg2cb0bbaVVkUJMf4ydMuT/vj+usPR7iVk+NkO2W/EwP6kWffLXStzNuQVX6QQzKXsP5R6Osp+ed20wpdW4FaQcH4m2DJibPhkgPtySE4BEd7regVeqgVkAPkADlADuQ5rUS+E+y3//7q/Zm98+LLA8OKaQVqBeQAOQByoNO0Uru2kpbatRWoFRRdK1olfa9IDqgVlFwrekWvSA6QA+QAOUAOZDmt1P47ZOJZxZ1gUCsgB8gBkAPdphXXVtLPK4HkCMz/Ly/NP3j2TtdnJuI7tYICa0WraBXJAXLAtKJXEshBDWqoFZAD5AA5MOy04k6w1Gek7gSDWgE5QA6AHOg2rbi2knxckRyInxxyQ2601wo72KFWQA6YVvSK5MCwyRGYW5d35h/c7fzMNNyt/nHOASekIEdcrkz3jnwE3c45SrwT7Mp0b3ftTKZm1H7LPr/8gFpBf3LUVRXoODglfpX7lDi/wkC7HSw5ZtPHoX8WY61freAwOepoR5hmaVpbpK2Olxyz6XrYTlkPlxxAmxx19GLJtFkaVhVtn0Mmx2xzPXM/5tczv2a1AtNK8mO2uZFteDTFxkbETQ6cHHn60WJG1OSo+MGMRTnnGMqP/C/0HJd66etvo7+HlfGk8fFXf14YVovtyLFRSHK0fQZpfpRLNaOqqnrpm5tlZODK6toh3+09RQ43b/vJtIhaKUWOLop8viVHplEZWpQpRxc/TrDgCjKjzGllqE+oMDPKTI70EVKeFuXLcdKWlOrEfjluVQvDyuq4Dyc2F2S7FksOLPoJKfrC3wSD5MAnJIfgQHut6BWoFZAD5AA5QA7kOa3475CQHCAHyAFygBzIclqpXVuB5AA50F+taBVIDpADfdaKXoHkADlADpAD5ECOvAf6hdzakJokEgAAAABJRU5ErkJggg==">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#E9EFF5; --bg2:#D6E2EE; --ink:#16293D; --muted:#5C7188;
+  --glass:#7C97B2; --glassbg:rgba(255,255,255,.55); --shelf:#B3C4D6;
+  --btn:#FFFFFF; --btnline:#C3D0DC; --accent:#16293D; --onaccent:#FFFFFF; --panel:#FFFFFF;
+  box-sizing:border-box;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#111C27; --bg2:#0A121A; --ink:#E4EEF7; --muted:#8CA2B6;
+    --glass:#6E8AA6; --glassbg:rgba(255,255,255,.07); --shelf:#26394B;
+    --btn:#182634; --btnline:#2B3D4F; --accent:#E4EEF7; --onaccent:#101B26; --panel:#182634;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#111C27; --bg2:#0A121A; --ink:#E4EEF7; --muted:#8CA2B6;
+  --glass:#6E8AA6; --glassbg:rgba(255,255,255,.07); --shelf:#26394B;
+  --btn:#182634; --btnline:#2B3D4F; --accent:#E4EEF7; --onaccent:#101B26; --panel:#182634;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+[hidden]{display:none!important}
+html,body{height:100%; margin:0; overflow:hidden; overscroll-behavior:none}
+body{
+  background:var(--bg); background-image:linear-gradient(var(--bg), var(--bg2));
+  color:var(--ink); font-family:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  user-select:none; -webkit-user-select:none;
+  touch-action:manipulation; -webkit-touch-callout:none;
+}
+.app{
+  height:100%; max-width:560px; margin:0 auto; display:flex; flex-direction:column; gap:8px;
+  padding:calc(env(safe-area-inset-top,0px) + 12px) 14px calc(env(safe-area-inset-bottom,0px) + 14px);
+}
+.top{display:flex; align-items:baseline; justify-content:space-between}
+.top h1{margin:0; font-family:"Unbounded",system-ui,sans-serif; font-weight:700; font-size:20px; letter-spacing:-.01em}
+.top .moves{font-weight:700; color:var(--muted); font-size:15px; font-variant-numeric:tabular-nums}
+
+.stage{position:relative; flex:1; min-height:0}
+.board{
+  position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:34px;
+}
+.row{position:relative; display:flex; justify-content:center; gap:10px; padding-bottom:7px}
+.row::after{content:''; position:absolute; left:-6px; right:-6px; bottom:0; height:8px; border-radius:4px; background:var(--shelf)}
+
+.flask{position:relative; flex:none; width:var(--tw); height:var(--th); cursor:pointer; z-index:1; transition:translate .15s ease}
+.flask.sel{translate:0 -12px}
+.flask.pouring{transition:none; translate:none; z-index:20}
+.flask:focus-visible{outline:3px solid var(--ink); outline-offset:3px; border-radius:8px}
+.lip{
+  position:absolute; top:0; left:-5px; right:-5px; height:9px; z-index:2;
+  border:3px solid var(--glass); border-radius:6px; background:var(--glassbg);
+}
+.glass{
+  position:absolute; inset:0; top:5px; overflow:hidden;
+  border:3px solid var(--glass); border-top:0;
+  border-radius:3px 3px calc(var(--tw) * .5) calc(var(--tw) * .5);
+  background:var(--glassbg);
+}
+.layers{position:absolute; inset:0; display:flex; flex-direction:column-reverse}
+.unit{
+  position:relative; flex:none; height:25%; width:100%; background-color:var(--c);
+  background-image:
+    radial-gradient(rgba(255,255,255,.38) 1px, transparent 1.6px),
+    radial-gradient(rgba(0,0,0,.2) 1px, transparent 1.6px);
+  background-size:6px 6px, 9px 9px; background-position:0 0, 3px 4px;
+}
+.unit.top::before{
+  content:''; position:absolute; left:8%; right:8%; top:-5px; height:10px; border-radius:50%;
+  background:inherit;
+}
+.unit.anim::before{display:none}
+.shine{
+  position:absolute; left:14%; top:9%; bottom:16%; width:7%; border-radius:6px;
+  background:rgba(255,255,255,.4); pointer-events:none; z-index:3;
+}
+
+.stream{
+  position:absolute; width:8px; margin-left:-4px; pointer-events:none; z-index:15; opacity:.92;
+  background:
+    radial-gradient(circle, var(--c) 1.7px, transparent 2.1px) 0 0 / 8px 9px repeat-y,
+    radial-gradient(circle, var(--c) 1.3px, transparent 1.8px) 3px 4px / 8px 7px repeat-y,
+    linear-gradient(90deg, transparent 25%, var(--c) 25% 75%, transparent 75%) 0 0 / 100% 100% no-repeat;
+  animation:fall .3s linear infinite;
+}
+@keyframes fall{to{background-position:0 9px, 3px 11px, 0 0}}
+
+.flask.hop{animation:hop .6s ease calc(var(--d) * 70ms) 2}
+@keyframes hop{0%,100%{translate:0 0}40%{translate:0 -16px}}
+
+.tip{margin:0; text-align:center; color:var(--muted); font-size:14px; font-weight:500; min-height:20px}
+.tools{display:grid; grid-template-columns:repeat(3,1fr); gap:8px}
+.tools button{
+  font:inherit; font-weight:700; font-size:14px; padding:13px 4px; border-radius:12px; cursor:pointer;
+  border:1.5px solid var(--btnline); background:var(--btn); color:var(--ink);
+}
+.tools button:disabled{opacity:.38; cursor:default}
+button:focus-visible{outline:3px solid var(--ink); outline-offset:2px}
+
+.win{
+  position:absolute; inset:0; z-index:30; display:flex; align-items:center; justify-content:center; padding:20px;
+  background:color-mix(in srgb, var(--bg) 72%, transparent);
+}
+.card{
+  background:var(--panel); border-radius:20px; padding:24px 22px 20px; width:100%; max-width:320px; text-align:center;
+  box-shadow:0 12px 34px rgba(10,30,60,.25);
+}
+.card h2{margin:0 0 6px; font-family:"Unbounded",system-ui,sans-serif; font-size:24px; font-weight:700}
+.card p{margin:0 0 16px; color:var(--muted); font-weight:500}
+.card button{
+  width:100%; font:inherit; font-weight:700; font-size:17px; padding:14px; border:0; border-radius:14px;
+  background:var(--accent); color:var(--onaccent); cursor:pointer;
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="top">
+    <h1 id="lvl">Уровень 1</h1>
+    <div class="moves" id="moves">Ходы: 0</div>
+  </div>
+  <div class="stage">
+    <div class="board" id="board"></div>
+    <div class="win" id="win" hidden>
+      <div class="card" role="dialog" aria-labelledby="winTitle">
+        <h2 id="winTitle">Готово!</h2>
+        <p id="winText"></p>
+        <button type="button" id="next">Дальше</button>
+      </div>
+    </div>
+  </div>
+  <p class="tip" id="tip">Нажми на колбу, затем на ту, куда пересыпать. Каждый цвет должен оказаться в своей колбе.</p>
+  <div class="tools">
+    <button type="button" id="undo">Отменить</button>
+    <button type="button" id="restart">Заново</button>
+    <button type="button" id="extra">+ Колба</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  /*LOGIC_START*/
+  var CAP = 4;
+  var COLORS = ['#E5484D','#F5A524','#F2D93A','#3FB950','#1DB5A6','#3B82F6','#8B5CF6','#EC6FB2','#8A5A3C','#9AA5B1'];
+
+  function shuffle(a){
+    for(var i = a.length - 1; i > 0; i--){
+      var j = Math.floor(Math.random() * (i + 1)), t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+  function clone(t){ return t.map(function(x){ return x.slice(); }); }
+  function uniform(t){ for(var i = 1; i < t.length; i++) if(t[i] !== t[0]) return false; return true; }
+  function runLen(t){
+    var c = t[t.length - 1], k = 0;
+    for(var i = t.length - 1; i >= 0 && t[i] === c; i--) k++;
+    return k;
+  }
+  function canPour(a, b){
+    if(a === b || !a.length || b.length >= CAP) return false;
+    if(b.length === 0) return !uniform(a);
+    return b[b.length - 1] === a[a.length - 1];
+  }
+  function pourAmount(a, b){ return Math.min(runLen(a), CAP - b.length); }
+  function movePour(a, b){
+    var k = pourAmount(a, b);
+    for(var i = 0; i < k; i++) b.push(a.pop());
+    return k;
+  }
+  function isSolved(t){
+    for(var i = 0; i < t.length; i++){
+      var x = t[i];
+      if(x.length === 0) continue;
+      if(x.length !== CAP || !uniform(x)) return false;
+    }
+    return true;
+  }
+  function solvable(start){
+    if(isSolved(start)) return true;
+    var seen = {}, nodes = 0;
+    function key(t){ return t.map(function(x){ return x.join(''); }).sort().join('|'); }
+    function gen(t){
+      var mv = [];
+      for(var a = 0; a < t.length; a++) for(var b = 0; b < t.length; b++) if(a !== b && canPour(t[a], t[b])) mv.push([a, b]);
+      mv.sort(function(x, y){ return (t[y[1]].length > 0) - (t[x[1]].length > 0); });
+      return mv;
+    }
+    var st = [{ t: start, mv: gen(start), i: 0 }];
+    seen[key(start)] = 1;
+    while(st.length){
+      var top = st[st.length - 1];
+      if(top.i >= top.mv.length){ st.pop(); continue; }
+      var m = top.mv[top.i++], n = clone(top.t);
+      movePour(n[m[0]], n[m[1]]);
+      if(isSolved(n)) return true;
+      var k = key(n);
+      if(seen[k]) continue;
+      seen[k] = 1;
+      if(++nodes > 20000) return true; // слишком большой перебор: считаем решаемым
+      st.push({ t: n, mv: gen(n), i: 0 });
+    }
+    return false;
+  }
+  function colorsForLevel(L){ return Math.min(3 + Math.floor((L - 1) / 2), COLORS.length); }
+  function makeLevel(L){
+    var nc = colorsForLevel(L), best = null;
+    for(var attempt = 0; attempt < 80; attempt++){
+      var units = [];
+      for(var c = 0; c < nc; c++) for(var k = 0; k < CAP; k++) units.push(c);
+      shuffle(units);
+      var tubes = [], bad = false;
+      for(var i = 0; i < nc; i++){
+        var tb = units.slice(i * CAP, (i + 1) * CAP);
+        if(uniform(tb)) bad = true;
+        tubes.push(tb);
+      }
+      tubes.push([]); tubes.push([]);
+      if(bad) continue;
+      best = tubes;
+      if(solvable(tubes)) return tubes;
+    }
+    return best || [[0,1,0,1],[1,0,1,0],[],[]];
+  }
+  /*LOGIC_END*/
+
+  var KEY = 'powder-level-v1', SEL = 12;
+  var $ = function(id){ return document.getElementById(id); };
+  var board = $('board');
+  var tubes = [], init = [], hist = [], flasks = [];
+  var sel = -1, busy = false, won = false, level = 1, moves = 0, extraUsed = false, initLen = 0, started = false;
+
+  try { level = Math.max(1, parseInt(localStorage.getItem(KEY), 10) || 1); } catch(e){}
+
+  function hud(){
+    $('lvl').textContent = 'Уровень ' + level;
+    $('moves').textContent = 'Ходы: ' + moves;
+    $('undo').disabled = !hist.length || busy || won;
+    $('restart').disabled = busy;
+    $('extra').disabled = extraUsed || busy || won;
+  }
+
+  function fillTube(i){
+    var layers = flasks[i].querySelector('.layers');
+    layers.innerHTML = '';
+    var t = tubes[i];
+    for(var j = 0; j < t.length; j++){
+      var u = document.createElement('div');
+      u.className = 'unit' + (j === t.length - 1 ? ' top' : '');
+      u.style.setProperty('--c', COLORS[t[j]]);
+      layers.appendChild(u);
+    }
+  }
+
+  function build(){
+    board.innerHTML = ''; flasks = [];
+    var n = tubes.length, rows = n > 5 ? 2 : 1, per = Math.ceil(n / rows);
+    var aw = board.clientWidth - 24, ah = board.clientHeight;
+    var tw = Math.min(62, Math.floor((aw - 10 * (per - 1)) / per));
+    var th = Math.min(tw * 3.4, (ah - (rows - 1) * 34 - 50) / rows);
+    if(th < tw * 2.2) tw = Math.floor(th / 2.2);
+    th = Math.min(th, tw * 3.4);
+    board.style.setProperty('--tw', tw + 'px');
+    board.style.setProperty('--th', th + 'px');
+    var idx = 0;
+    for(var r = 0; r < rows; r++){
+      var row = document.createElement('div');
+      row.className = 'row';
+      var cnt = r === 0 ? per : n - per;
+      for(var k = 0; k < cnt; k++){
+        (function(i){
+          var f = document.createElement('div');
+          f.className = 'flask';
+          f.setAttribute('role', 'button');
+          f.setAttribute('tabindex', '0');
+          f.setAttribute('aria-label', 'Колба ' + (i + 1));
+          f.innerHTML = '<div class="lip"></div><div class="glass"><div class="layers"></div><div class="shine"></div></div>';
+          f.addEventListener('click', function(){ onTap(i); });
+          f.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); onTap(i); } });
+          row.appendChild(f);
+          flasks.push(f);
+        })(idx++);
+      }
+      board.appendChild(row);
+    }
+    for(var i = 0; i < flasks.length; i++) fillTube(i);
+    mark();
+  }
+
+  function mark(){
+    for(var i = 0; i < flasks.length; i++) flasks[i].classList.toggle('sel', i === sel);
+  }
+
+  function onTap(i){
+    if(busy || won) return;
+    if(sel < 0){
+      if(tubes[i].length){ sel = i; mark(); }
+      return;
+    }
+    if(sel === i){ sel = -1; mark(); return; }
+    if(canPour(tubes[sel], tubes[i])){ pour(sel, i); return; }
+    if(tubes[i].length){ sel = i; } else { sel = -1; }
+    mark();
+  }
+
+  function wait(el, frames, opts){
+    return el.animate(frames, opts).finished.catch(function(){});
+  }
+
+  async function pour(a, b){
+    busy = true;
+    if(!started){ started = true; $('tip').textContent = ''; }
+    var src = tubes[a], dst = tubes[b], col = src[src.length - 1];
+    var k = pourAmount(src, dst);
+    var sa = flasks[a], sb = flasks[b];
+
+    var br = board.getBoundingClientRect(), ra = sa.getBoundingClientRect(), rb = sb.getBoundingClientRect();
+    var acx = ra.left + ra.width / 2, acy = ra.top + ra.height / 2 + SEL;
+    var dcx = rb.left + rb.width / 2, dtop = rb.top;
+    var dir = dcx >= acx ? 1 : -1, ang = 80, rad = ang * Math.PI / 180, h = ra.height;
+    var Cx = dcx - dir * (h / 2) * Math.sin(rad), Cy = (dtop - 46) + (h / 2) * Math.cos(rad);
+    var go = 'translate(' + (Cx - acx) + 'px,' + (Cy - acy) + 'px) rotate(' + (dir * ang) + 'deg)';
+
+    sel = -1; mark();
+    sa.classList.add('pouring');
+    hist.push(clone(tubes)); moves++; hud();
+
+    await wait(sa, [{ transform: 'translate(0px,-' + SEL + 'px) rotate(0deg)' }, { transform: go }],
+      { duration: 300, easing: 'ease-out', fill: 'forwards' });
+
+    var unitsA = Array.prototype.slice.call(sa.querySelectorAll('.unit')).slice(-k);
+    var lenBefore = dst.length;
+    for(var j = 0; j < k; j++) dst.push(src.pop());
+    fillTube(b);
+    var newUnits = Array.prototype.slice.call(sb.querySelectorAll('.unit')).slice(-k);
+
+    var dur = 200 + 110 * k;
+    var innerH = rb.height - 8;
+    var y0 = rb.bottom - 3 - innerH * (lenBefore / CAP);
+    var y1 = rb.bottom - 3 - innerH * (dst.length / CAP);
+    var mouthY = dtop - 46 + 6;
+    var h0 = Math.max(10, y0 - mouthY), h1 = Math.max(10, y1 - mouthY);
+
+    var stream = document.createElement('div');
+    stream.className = 'stream';
+    stream.style.setProperty('--c', COLORS[col]);
+    stream.style.left = (dcx - br.left) + 'px';
+    stream.style.top = (mouthY - br.top) + 'px';
+    board.appendChild(stream);
+
+    var total = dur + 120, tasks = [];
+    tasks.push(wait(stream, [
+      { height: '0px', offset: 0 },
+      { height: h0 + 'px', offset: 120 / total },
+      { height: h1 + 'px', offset: 1 }
+    ], { duration: total, fill: 'forwards' }));
+    unitsA.forEach(function(u){
+      u.classList.add('anim');
+      tasks.push(wait(u, [{ height: '25%' }, { height: '0%' }], { duration: dur, delay: 120, easing: 'linear', fill: 'forwards' }));
+    });
+    newUnits.forEach(function(u){
+      u.classList.add('anim');
+      tasks.push(wait(u, [{ height: '0%' }, { height: '25%' }], { duration: dur, delay: 120, easing: 'linear', fill: 'backwards' }));
+    });
+    await Promise.all(tasks);
+
+    await wait(stream, [{ opacity: .92 }, { opacity: 0 }], { duration: 100 });
+    stream.remove();
+    fillTube(a); fillTube(b);
+
+    await wait(sa, [{ transform: go }, { transform: 'translate(0px,0px) rotate(0deg)' }],
+      { duration: 260, easing: 'ease-in-out', fill: 'forwards' });
+    sa.getAnimations().forEach(function(x){ x.cancel(); });
+    sa.classList.remove('pouring');
+    try { if(navigator.vibrate) navigator.vibrate(8); } catch(e){}
+
+    busy = false;
+    if(isSolved(tubes)) win(); else hud();
+  }
+
+  function win(){
+    won = true;
+    try { localStorage.setItem(KEY, String(level + 1)); } catch(e){}
+    for(var i = 0; i < flasks.length; i++){
+      flasks[i].style.setProperty('--d', i);
+      flasks[i].classList.add('hop');
+    }
+    hud();
+    $('winText').textContent = 'Уровень ' + level + ' пройден за ' + moves + ' ' + movesWord(moves) + '.';
+    setTimeout(function(){
+      if(!won) return;
+      $('win').hidden = false;
+      $('next').focus({ preventScroll: true });
+    }, 900);
+  }
+  function movesWord(n){
+    var a = n % 10, b = n % 100;
+    if(a === 1 && b !== 11) return 'ход';
+    if(a >= 2 && a <= 4 && (b < 12 || b > 14)) return 'хода';
+    return 'ходов';
+  }
+
+  function newLevel(){
+    tubes = makeLevel(level);
+    init = clone(tubes); initLen = tubes.length;
+    hist = []; moves = 0; extraUsed = false; sel = -1; won = false; busy = false;
+    $('win').hidden = true;
+    build(); hud();
+  }
+
+  $('undo').addEventListener('click', function(){
+    if(busy || won || !hist.length) return;
+    tubes = hist.pop(); moves = Math.max(0, moves - 1); sel = -1;
+    extraUsed = tubes.length > initLen;
+    build(); hud();
+  });
+  $('restart').addEventListener('click', function(){
+    if(busy) return;
+    tubes = clone(init); hist = []; moves = 0; extraUsed = false; sel = -1; won = false;
+    $('win').hidden = true;
+    build(); hud();
+  });
+  $('extra').addEventListener('click', function(){
+    if(busy || won || extraUsed) return;
+    hist.push(clone(tubes));
+    tubes.push([]); extraUsed = true; sel = -1;
+    build(); hud();
+  });
+  $('next').addEventListener('click', function(){ level++; newLevel(); });
+  window.addEventListener('resize', function(){ if(!busy && flasks.length){ build(); } });
+
+  newLevel();
+})();
+</script>
+</body>
+</html>
