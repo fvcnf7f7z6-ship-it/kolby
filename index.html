@@ -6,7 +6,7 @@
 <title>Колбы</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="apple-mobile-web-app-title" content="Колбы">
 <meta name="theme-color" content="#16293D">
 <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAESElEQVR42u3dsWtVZxzG8XMuOiiFboJjQASXDJ1a0U2cHKuC/gdSShFS1NxcTG4M5cZCcXAXccjkUjp16JC5g3Qq3bt06CBkcHEQJOSek5zoyXve33s/X84Qbi7c9773m+c5P85JUp+7dLUCmhjZApAD5AA5QA4Myamqqu0CJAfIgd5qRatAcoAcMK0ggRzUgFoBOUAOkAPDTiu1U1JIDpAD5AA5QA5kOa24tgLJgWMnh9xAe62wA2oF5IBpBZIDwyZHACY//VLe1m88+EFyMCPq+xrZQe8upBxlm5H/e3QnWAbk+hGcCrSHz2ZbZcjw/Y+PjLIIPsoqleFbJd9zDmkMtYJPkKPO9pg+vF/8BzB9eD/b/R9F2LuyzVAr/Aj4vurzy9eCbu6/b37/+PXzX980PufejeWTXkaXlw66yYHluLj9xYcvbr/baHzCzulJmpUcuYC/V96aVgag8YPZOT1JZsYhL9cmjWklwVENGxjHed2QOzwqLDaGMqPt1UOHx4gZ/ChNjrWtnzM0o20l86sNgQtvqcZCyZGGccax0baeccDwKOFOsNzM+Liqg2cb0bbaVVkUJMf4ydMuT/vj+usPR7iVk+NkO2W/EwP6kWffLXStzNuQVX6QQzKXsP5R6Osp+ed20wpdW4FaQcH4m2DJibPhkgPtySE4BEd7regVeqgVkAPkADlADuQ5rUS+E+y3//7q/Zm98+LLA8OKaQVqBeQAOQByoNO0Uru2kpbatRWoFRRdK1olfa9IDqgVlFwrekWvSA6QA+QAOUAOZDmt1P47ZOJZxZ1gUCsgB8gBkAPdphXXVtLPK4HkCMz/Ly/NP3j2TtdnJuI7tYICa0WraBXJAXLAtKJXEshBDWqoFZAD5AA5MOy04k6w1Gek7gSDWgE5QA6AHOg2rbi2knxckRyInxxyQ2601wo72KFWQA6YVvSK5MCwyRGYW5d35h/c7fzMNNyt/nHOASekIEdcrkz3jnwE3c45SrwT7Mp0b3ftTKZm1H7LPr/8gFpBf3LUVRXoODglfpX7lDi/wkC7HSw5ZtPHoX8WY61freAwOepoR5hmaVpbpK2Olxyz6XrYTlkPlxxAmxx19GLJtFkaVhVtn0Mmx2xzPXM/5tczv2a1AtNK8mO2uZFteDTFxkbETQ6cHHn60WJG1OSo+MGMRTnnGMqP/C/0HJd66etvo7+HlfGk8fFXf14YVovtyLFRSHK0fQZpfpRLNaOqqnrpm5tlZODK6toh3+09RQ43b/vJtIhaKUWOLop8viVHplEZWpQpRxc/TrDgCjKjzGllqE+oMDPKTI70EVKeFuXLcdKWlOrEfjluVQvDyuq4Dyc2F2S7FksOLPoJKfrC3wSD5MAnJIfgQHut6BWoFZAD5AA5QA7kOa3475CQHCAHyAFygBzIclqpXVuB5AA50F+taBVIDpADfdaKXoHkADlADpAD5ECOvAf6hdzakJokEgAAAABJRU5ErkJggg==">
@@ -197,6 +197,75 @@ button:focus-visible{outline:3px solid var(--ink); outline-offset:2px}
 .tools button, .back{border-radius:14px}
 .tools button{min-height:54px; padding:0 4px; font-size:15px}
 .dedic{border-radius:20px}
+
+/* ---------- iOS home-screen fix: page locked to the viewport ---------- */
+html, body{position:fixed; inset:0; width:100%; height:100%}
+
+/* ---------- 3D look ---------- */
+:root{ --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' seed='3'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1.1 -.36'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url%28%23a%29'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='110' height='110'%3E%3Cfilter id='b'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='2' seed='9'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1.1 -.40'/%3E%3C/filter%3E%3Crect width='110' height='110' filter='url%28%23b%29'/%3E%3C/svg%3E"); }
+#fx{position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:15}
+
+.flask::after{
+  content:''; position:absolute; left:-6%; right:-6%; bottom:-8px; height:14px; z-index:-1; pointer-events:none;
+  background:radial-gradient(ellipse at 50% 50%, rgba(8,20,36,.42), rgba(8,20,36,0) 70%);
+}
+.flask.pouring::after{display:none}
+
+.lip{
+  left:-4px; right:-4px; top:0; height:13px; border:3px solid var(--glass); border-radius:50%;
+  background:linear-gradient(180deg, rgba(255,255,255,.38), rgba(255,255,255,.06));
+  box-shadow:0 1px 2px rgba(0,0,0,.2), inset 0 -1px 2px rgba(0,0,0,.2);
+}
+.glass{
+  top:6px; border:3px solid var(--glass); border-top:0;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,.24), rgba(255,255,255,.03) 28%, rgba(255,255,255,.07) 72%, rgba(255,255,255,.28)),
+    var(--glassbg);
+  box-shadow:inset 0 0 8px rgba(255,255,255,.2);
+  --e:calc(var(--tw) * .24);
+}
+.glass::after{
+  content:''; position:absolute; inset:0; z-index:4; pointer-events:none;
+  background:linear-gradient(90deg, rgba(0,0,0,.32) 0%, rgba(0,0,0,.04) 16%, rgba(255,255,255,.13) 32%, rgba(255,255,255,0) 50%, rgba(0,0,0,.06) 76%, rgba(0,0,0,.32) 100%);
+}
+.glass::before{
+  content:''; position:absolute; left:0; right:0; bottom:0; height:36%; z-index:4; pointer-events:none;
+  background:radial-gradient(ellipse at 50% 125%, rgba(255,255,255,.32), rgba(255,255,255,0) 62%);
+}
+.shine{
+  left:0; right:0; top:8%; bottom:14%; width:auto; border-radius:0; z-index:5;
+  background:linear-gradient(90deg, transparent 10%, rgba(255,255,255,.75) 10% 15%, transparent 15%, transparent 84%, rgba(255,255,255,.24) 84% 89%, transparent 89%);
+  -webkit-mask-image:linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image:linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+.unit{
+  background-image:var(--grain), linear-gradient(180deg, rgba(255,255,255,.10), rgba(0,0,0,.14));
+  background-size:auto; background-position:0 0;
+}
+.unit::after{
+  content:''; position:absolute; left:0; right:0; bottom:calc(var(--e) / -2); height:var(--e); border-radius:50%;
+  background-color:var(--c);
+  background-image:var(--grain), linear-gradient(180deg, rgba(0,0,0,.12), rgba(0,0,0,.22));
+  box-shadow:0 1px 0 rgba(0,0,0,.16);
+}
+.unit.top::before{
+  left:0; right:0; top:calc(var(--e) / -2); height:var(--e); border-radius:50%;
+  background:var(--c);
+  background:var(--grain), radial-gradient(ellipse at 50% 38%, color-mix(in srgb, var(--c) 45%, #fff) 0%, var(--c) 62%, color-mix(in srgb, var(--c) 78%, #000) 100%);
+  background-size:auto, 100% 100%;
+  box-shadow:inset 0 -1px 2px rgba(0,0,0,.22);
+}
+.unit.anim::before{display:none}
+
+.bands{position:absolute; inset:0; z-index:1; opacity:0; transition:opacity .15s; pointer-events:none}
+.flask.tilted .bands{opacity:1}
+.band{
+  position:absolute; inset:0; background-color:var(--c);
+  background-image:var(--grain), linear-gradient(180deg, rgba(255,255,255,.08), rgba(0,0,0,.14));
+  background-size:auto;
+}
+.sheen{position:absolute; inset:0; background:rgba(255,255,255,.26)}
 </style>
 </head>
 <body>
@@ -210,6 +279,7 @@ button:focus-visible{outline:3px solid var(--ink); outline-offset:2px}
   </div>
   <div class="stage">
     <div class="board" id="board"></div>
+    <canvas id="fx"></canvas>
     <div class="win" id="win" hidden>
       <div class="card" role="dialog" aria-labelledby="winTitle">
         <h2 id="winTitle">Готово!</h2>
@@ -410,70 +480,212 @@ button:focus-visible{outline:3px solid var(--ink); outline-offset:2px}
     return el.animate(frames, opts).finished.catch(function(){});
   }
 
+  /* ---------- pour physics: the powder surface stays horizontal while the flask tilts ---------- */
+  var DEG = Math.PI / 180;
+  function clipPoly(poly, nx, ny, c, keepLE){
+    var out = [];
+    for(var i = 0; i < poly.length; i++){
+      var p = poly[i], q = poly[(i + 1) % poly.length];
+      var dp = nx * p[0] + ny * p[1] - c, dq = nx * q[0] + ny * q[1] - c;
+      if(!keepLE){ dp = -dp; dq = -dq; }
+      var pin = dp <= 0, qin = dq <= 0;
+      if(pin) out.push(p);
+      if(pin !== qin){
+        var t = dp / (dp - dq);
+        out.push([p[0] + (q[0] - p[0]) * t, p[1] + (q[1] - p[1]) * t]);
+      }
+    }
+    return out;
+  }
+  function polyArea(poly){
+    var s = 0;
+    for(var i = 0; i < poly.length; i++){
+      var p = poly[i], q = poly[(i + 1) % poly.length];
+      s += p[0] * q[1] - q[0] * p[1];
+    }
+    return Math.abs(s) / 2;
+  }
+  function levelFor(area, nx, ny, gw, gh){
+    var cs = [[0, 0], [gw, 0], [gw, gh], [0, gh]], lo = Infinity, hi = -Infinity;
+    for(var i = 0; i < 4; i++){ var v = nx * cs[i][0] + ny * cs[i][1]; if(v < lo) lo = v; if(v > hi) hi = v; }
+    if(area <= 0) return lo - 1;
+    if(area >= gw * gh) return hi + 1;
+    for(var j = 0; j < 26; j++){
+      var mid = (lo + hi) / 2;
+      if(polyArea(clipPoly(cs, nx, ny, mid, true)) < area) lo = mid; else hi = mid;
+    }
+    return (lo + hi) / 2;
+  }
+  function alphaForArea(A, dir, gw, gh){
+    var cs = [[0, 0], [gw, 0], [gw, gh], [0, gh]], lo = 0, hi = 108 * DEG;
+    function areaRim(al){
+      var th = dir * al, nx = -Math.sin(th), ny = -Math.cos(th);
+      return polyArea(clipPoly(cs, nx, ny, Math.min(0, -gw * Math.sin(th)), true));
+    }
+    if(areaRim(hi) >= A) return hi;
+    if(areaRim(lo) <= A) return 0;
+    for(var i = 0; i < 24; i++){
+      var mid = (lo + hi) / 2;
+      if(areaRim(mid) > A) lo = mid; else hi = mid;
+    }
+    return (lo + hi) / 2;
+  }
+  function ease(t){ t = Math.max(0, Math.min(1, t)); return t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
+  function polyStr(poly){
+    if(poly.length < 3) return 'polygon(0px 0px, 0px 0px, 0px 0px)';
+    return 'polygon(' + poly.map(function(p){ return p[0].toFixed(1) + 'px ' + p[1].toFixed(1) + 'px'; }).join(',') + ')';
+  }
+  function tint(hex, f){
+    var n = parseInt(hex.slice(1), 16), r = n >> 16, g = (n >> 8) & 255, b = n & 255;
+    function m(c){ return Math.max(0, Math.min(255, Math.round(f > 0 ? c + (255 - c) * f : c * (1 + f)))); }
+    return 'rgb(' + m(r) + ',' + m(g) + ',' + m(b) + ')';
+  }
+  var fx = $('fx'), fxc = fx.getContext('2d');
+
   async function pour(a, b){
     busy = true;
     if(!started){ started = true; $('tip').textContent = ''; }
-    var src = tubes[a], dst = tubes[b], col = src[src.length - 1];
-    var k = pourAmount(src, dst);
+    var src = tubes[a], dst = tubes[b];
+    var src0 = src.slice(), col = src[src.length - 1], k = pourAmount(src, dst), lenBefore = dst.length;
     var sa = flasks[a], sb = flasks[b];
 
     var br = board.getBoundingClientRect(), ra = sa.getBoundingClientRect(), rb = sb.getBoundingClientRect();
     var acx = ra.left + ra.width / 2, acy = ra.top + ra.height / 2 + SEL;
     var dcx = rb.left + rb.width / 2, dtop = rb.top;
-    var dir = dcx >= acx ? 1 : -1, ang = 80, rad = ang * Math.PI / 180, h = ra.height;
-    var Cx = dcx - dir * (h / 2) * Math.sin(rad), Cy = (dtop - 46) + (h / 2) * Math.cos(rad);
-    var go = 'translate(' + (Cx - acx) + 'px,' + (Cy - acy) + 'px) rotate(' + (dir * ang) + 'deg)';
+    var dir = dcx >= acx ? 1 : -1;
+    var tw = sa.offsetWidth, th = sa.offsetHeight, cx = tw / 2, cy = th / 2;
+    var gl = sa.querySelector('.glass');
+    var gw = gl.clientWidth, gh = gl.clientHeight;
+    var gx0 = gl.offsetLeft + gl.clientLeft, gy0 = gl.offsetTop + gl.clientTop;
+    var rimX = (dir > 0 ? gx0 + gw : gx0) - cx, rimY = gy0 - cy;
+    var tgx = dcx - dir * rb.width * 0.2, tgy = dtop - 30;
+    var corners = [[0, 0], [gw, 0], [gw, gh], [0, gh]];
+    var F = gw * gh, A0 = F * src0.length / CAP, A1 = F * (src0.length - k) / CAP;
+    var alpha0 = alphaForArea(A0, dir, gw, gh);
+    var alphaEnd = Math.max(alpha0, alphaForArea(A1, dir, gw, gh));
+    var dgl = sb.querySelector('.glass').getBoundingClientRect();
+    var dInner = dgl.height - 3;
 
     sel = -1; mark();
     sa.classList.add('pouring');
     hist.push(clone(tubes)); moves++; hud();
 
-    await wait(sa, [{ transform: 'translate(0px,-' + SEL + 'px) rotate(0deg)' }, { transform: go }],
-      { duration: 300, easing: 'ease-out', fill: 'forwards' });
-
-    var unitsA = Array.prototype.slice.call(sa.querySelectorAll('.unit')).slice(-k);
-    var lenBefore = dst.length;
-    for(var j = 0; j < k; j++) dst.push(src.pop());
-    fillTube(b);
-    var newUnits = Array.prototype.slice.call(sb.querySelectorAll('.unit')).slice(-k);
-
-    var dur = 200 + 110 * k;
-    var innerH = rb.height - 8;
-    var y0 = rb.bottom - 3 - innerH * (lenBefore / CAP);
-    var y1 = rb.bottom - 3 - innerH * (dst.length / CAP);
-    var mouthY = dtop - 46 + 6;
-    var h0 = Math.max(10, y0 - mouthY), h1 = Math.max(10, y1 - mouthY);
-
-    var stream = document.createElement('div');
-    stream.className = 'stream';
-    stream.style.setProperty('--c', COLORS[col]);
-    stream.style.left = (dcx - br.left) + 'px';
-    stream.style.top = (mouthY - br.top) + 'px';
-    board.appendChild(stream);
-
-    var total = dur + 120, tasks = [];
-    tasks.push(wait(stream, [
-      { height: '0px', offset: 0 },
-      { height: h0 + 'px', offset: 120 / total },
-      { height: h1 + 'px', offset: 1 }
-    ], { duration: total, fill: 'forwards' }));
-    unitsA.forEach(function(u){
-      u.classList.add('anim');
-      tasks.push(wait(u, [{ height: '25%' }, { height: '0%' }], { duration: dur, delay: 120, easing: 'linear', fill: 'forwards' }));
+    // flat bands: layers keep their order, each band is cut by horizontal levels
+    var bandsEl = document.createElement('div'); bandsEl.className = 'bands';
+    var bandEls = src0.map(function(c){
+      var d = document.createElement('div'); d.className = 'band'; d.style.setProperty('--c', COLORS[c]);
+      bandsEl.appendChild(d); return d;
     });
-    newUnits.forEach(function(u){
-      u.classList.add('anim');
-      tasks.push(wait(u, [{ height: '0%' }, { height: '25%' }], { duration: dur, delay: 120, easing: 'linear', fill: 'backwards' }));
-    });
-    await Promise.all(tasks);
+    var sheen = document.createElement('div'); sheen.className = 'sheen'; bandsEl.appendChild(sheen);
+    gl.appendChild(bandsEl);
+    var layersEl = gl.querySelector('.layers');
 
-    await wait(stream, [{ opacity: .92 }, { opacity: 0 }], { duration: 100 });
-    stream.remove();
+    var dpr = Math.min(window.devicePixelRatio || 1, 3);
+    fx.width = Math.round(br.width * dpr); fx.height = Math.round(br.height * dpr);
+    fxc.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var shades = [COLORS[col], tint(COLORS[col], .28), tint(COLORS[col], -.22)];
+
+    var T1 = 360, T2 = 300 + 260 * k, T3 = 300, tot = T1 + T2 + T3;
+    var parts = [], acc = 0, mutated = false, newUnits = [], lastT = 0, shown = false;
+
+    function drawBands(th_, A){
+      var nx = -Math.sin(th_), ny = -Math.cos(th_), prevL = null, lastL = null;
+      for(var i = 0; i < bandEls.length; i++){
+        var Ci = Math.min((i + 1) / CAP * F, A), Cp = Math.min(i / CAP * F, A), el = bandEls[i];
+        if(Ci - Cp < 0.8){ el.style.display = 'none'; continue; }
+        el.style.display = '';
+        var Li = levelFor(Ci, nx, ny, gw, gh);
+        var poly = clipPoly(corners, nx, ny, Li, true);
+        if(prevL !== null) poly = clipPoly(poly, nx, ny, prevL, false);
+        var cs = polyStr(poly);
+        el.style.clipPath = cs; el.style.webkitClipPath = cs;
+        prevL = Li; lastL = Li;
+      }
+      if(lastL === null){ sheen.style.display = 'none'; return; }
+      sheen.style.display = '';
+      var sp = clipPoly(clipPoly(corners, nx, ny, lastL, true), nx, ny, lastL - 6, false);
+      var ss = polyStr(sp);
+      sheen.style.clipPath = ss; sheen.style.webkitClipPath = ss;
+    }
+    drawBands(0, A0);
+    void bandsEl.offsetWidth;
+    sa.classList.add('tilted');
+    setTimeout(function(){ if(layersEl) layersEl.style.visibility = 'hidden'; }, 170);
+
+    await new Promise(function(resolve){
+      var t0 = performance.now();
+      function step(now){
+        var t = Math.min(now - t0, tot), dt = Math.min(0.05, Math.max(0.001, (t - lastT) / 1000)); lastT = t;
+        var alpha, A, w, p = 0, flow = false;
+        if(t < T1){
+          var e = ease(t / T1); alpha = alpha0 * e; A = A0; w = e;
+        } else if(t < T1 + T2){
+          p = (t - T1) / T2; A = A0 + (A1 - A0) * p; flow = true; w = 1;
+          alpha = Math.max(alpha0, alphaForArea(A, dir, gw, gh));
+        } else {
+          var q = ease((t - T1 - T2) / T3); A = A1; alpha = alphaEnd * (1 - q); w = 1 - q; p = 1;
+        }
+        var th_ = dir * alpha, cs_ = Math.cos(th_), sn_ = Math.sin(th_);
+        var rpx = rimX * cs_ - rimY * sn_, rpy = rimX * sn_ + rimY * cs_;
+        var Ix = tgx - acx - rpx, Iy = tgy - acy - rpy, Sy = t < T1 ? -SEL : 0;
+        var Tx = Ix * w, Ty = Sy + (Iy - Sy) * w;
+        sa.style.transform = 'translate(' + Tx.toFixed(2) + 'px,' + Ty.toFixed(2) + 'px) rotate(' + th_.toFixed(4) + 'rad)';
+        drawBands(th_, A);
+
+        if(t >= T1 && !mutated){
+          mutated = true;
+          for(var j = 0; j < k; j++) dst.push(src.pop());
+          fillTube(b);
+          newUnits = Array.prototype.slice.call(sb.querySelectorAll('.unit')).slice(-k);
+        }
+        var prog = t < T1 ? 0 : (t < T1 + T2 ? p : 1);
+        if(mutated){
+          var topIdx = prog <= 0 ? -1 : Math.min(k - 1, Math.ceil(prog * k - 1e-6) - 1);
+          newUnits.forEach(function(u, j){
+            u.style.height = (Math.max(0, Math.min(1, prog * k - j)) * 25) + '%';
+            u.classList.toggle('top', j === topIdx);
+          });
+        }
+
+        // falling powder
+        var wx = acx + Tx + rpx - br.left, wy = acy + Ty + rpy - br.top;
+        if(flow){
+          acc += (380 + 70 * Math.min(k, 3)) * dt;
+          while(acc >= 1){
+            acc -= 1;
+            parts.push({ x: wx + (Math.random() - .5) * 3, y: wy, vx: dir * (30 + Math.random() * 50), vy: Math.random() * 40,
+                         r: 1.1 + Math.random() * 1.4, c: shades[(Math.random() * 3) | 0], life: 0, splash: false });
+          }
+        }
+        fxc.clearRect(0, 0, br.width, br.height);
+        var surf = dgl.bottom - 3 - dInner * ((lenBefore + k * prog) / CAP) - br.top;
+        for(var i = parts.length - 1; i >= 0; i--){
+          var pt = parts[i];
+          pt.vy += 2000 * dt; pt.x += pt.vx * dt; pt.y += pt.vy * dt;
+          if(pt.splash){
+            pt.life += dt;
+            if(pt.life > .26){ parts.splice(i, 1); continue; }
+          } else if(pt.y >= surf){
+            parts.splice(i, 1);
+            if(Math.random() < .3) parts.push({ x: pt.x, y: surf - 1, vx: (Math.random() - .5) * 110, vy: -30 - Math.random() * 90,
+                                                r: .9 + Math.random() * .9, c: pt.c, life: 0, splash: true });
+            continue;
+          }
+          fxc.fillStyle = pt.c;
+          fxc.beginPath(); fxc.arc(pt.x, pt.y, pt.r, 0, 6.2832); fxc.fill();
+        }
+
+        if(t < tot) requestAnimationFrame(step); else resolve();
+      }
+      requestAnimationFrame(step);
+    });
+
+    fxc.clearRect(0, 0, br.width, br.height);
     fillTube(a); fillTube(b);
-
-    await wait(sa, [{ transform: go }, { transform: 'translate(0px,0px) rotate(0deg)' }],
-      { duration: 260, easing: 'ease-in-out', fill: 'forwards' });
-    sa.getAnimations().forEach(function(x){ x.cancel(); });
+    if(layersEl) layersEl.style.visibility = '';
+    sa.classList.remove('tilted');
+    setTimeout(function(){ bandsEl.remove(); }, 220);
+    sa.style.transform = '';
     sa.classList.remove('pouring');
     try { if(navigator.vibrate) navigator.vibrate(8); } catch(e){}
 
@@ -563,7 +775,16 @@ button:focus-visible{outline:3px solid var(--ink); outline-offset:2px}
     build(); hud(); save();
   });
   $('next').addEventListener('click', function(){ level++; newLevel(); });
+  function refreshLayout(){
+    window.scrollTo(0, 0);
+    void document.body.offsetHeight;
+    if(!busy && flasks.length) build();
+  }
+  function refreshSoon(){ refreshLayout(); setTimeout(refreshLayout, 250); }
   window.addEventListener('resize', function(){ if(!busy && flasks.length){ build(); } });
+  window.addEventListener('pageshow', refreshSoon);
+  window.addEventListener('orientationchange', function(){ setTimeout(refreshLayout, 300); });
+  document.addEventListener('visibilitychange', function(){ if(!document.hidden) refreshSoon(); });
 
   if(!restore()) newLevel();
 
